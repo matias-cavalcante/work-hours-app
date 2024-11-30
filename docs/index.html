@@ -16,31 +16,6 @@
         <input type="password" id="password" name="password"><br><br>
         <button type="submit">Login</button>
     </form>
-
-    <script>
-        document.getElementById('login-form').addEventListener('submit', async function (event) {
-            event.preventDefault();
-
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            const response = await fetch('https://Matiass37.pythonanywhere.com/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ username, password })
-            });
-
-            const data = await response.json();
-
-            if (response.ok) {
-                alert(data.message);
-                window.location.href = data.redirect_url; // Redirect to the dashboard
-            } else {
-                alert(data.error);
-            }
-        });
-    </script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
