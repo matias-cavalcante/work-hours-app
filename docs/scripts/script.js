@@ -19,19 +19,9 @@ document
 
     if (response.ok) {
       alert(data.message);
-
-      // Fetch request to dashboard with credentials
-      const dashboardResponse = await fetch(data.redirect_url, {
-        method: "GET",
-        credentials: "include", // Ensure cookies are sent
-      });
-
-      if (dashboardResponse.ok) {
-        // Redirect to the dashboard page if successful
+      setTimeout(() => {
         window.location.href = data.redirect_url;
-      } else {
-        alert("Failed to load the dashboard. Please try again.");
-      }
+      }, 1000); // 1 second delay
     } else {
       alert(data.error);
     }
